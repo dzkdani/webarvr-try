@@ -17,15 +17,6 @@ AFRAME.registerComponent("gesture-rotate", {
       isReady = true;
     });
 
-    navigator.mediaDevices
-      .getUserMedia({ video: true })
-      .then((stream) => {
-        console.log("Camera OK");
-      })
-      .catch((err) => {
-        console.error("Camera FAILED:", err);
-      });
-
     document.querySelector("a-scene").addEventListener("loaded", () => {
       console.log("Scene loaded");
     });
