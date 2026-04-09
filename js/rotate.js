@@ -6,11 +6,17 @@ AFRAME.registerComponent("gesture-rotate", {
         let isDragging = false
         let previousX
 
-        const scene = document.querySelector("a-scene");
-
-        scene.addEventListener("renderstart", () => {
-          console.log("scene ready");
-        });
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(stream => {
+            console.log("Camera OK")
+          })
+          .catch(err => {
+            console.error("Camera FAILED:", err)
+          })
+        
+         document.querySelector("a-scene").addEventListener("loaded", () => {
+            console.log("Scene loaded")
+            })
 
         window.addEventListener("pointerdown", e => {
             isDragging = true
