@@ -6,6 +6,12 @@ AFRAME.registerComponent("gesture-rotate", {
         let isDragging = false
         let previousX
 
+        const scene = document.querySelector("a-scene");
+
+        scene.addEventListener("renderstart", () => {
+          console.log("scene ready");
+        });
+
         window.addEventListener("pointerdown", e => {
             isDragging = true
             previousX = e.clientX
